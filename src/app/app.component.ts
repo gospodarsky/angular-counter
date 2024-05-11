@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { CounterComponent } from './counter/counter.component';
-import { DisplayComponent } from './display/display.component';
+import { CounterComponent } from './components/counter/counter.component';
+import { DisplayComponent } from './components/display/display.component';
 
 @Component({
   selector: 'app-root',
