@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { DisplayService } from '../../services/display.service';
 
 @Component({
   selector: 'app-display',
@@ -7,6 +8,14 @@ import { Component } from '@angular/core';
   templateUrl: './display.component.html',
   styleUrl: './display.component.scss'
 })
-export class DisplayComponent {
+export class DisplayComponent implements OnInit {
+  count: number = 0;
 
+  constructor(private displayService: DisplayService) {}
+
+  ngOnInit(): void {
+    this.displayService.subscriber$.subscribe(data => {
+      this.count = data;
+    });
+  }
 }

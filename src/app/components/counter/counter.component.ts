@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DisplayService } from '../../services/display.service';
 
 @Component({
   selector: 'app-counter',
@@ -10,11 +11,19 @@ import { Component } from '@angular/core';
 export class CounterComponent {
   count = 0;
 
+  constructor(private displayService: DisplayService) { }
+
   increment() {
     this.count++;
+    this.emitCountNumber();
   }
 
   reset() {
     this.count = 0;
+    this.emitCountNumber();
+  }
+
+  private emitCountNumber() {
+    this.displayService.emit(this.count);
   }
 }
